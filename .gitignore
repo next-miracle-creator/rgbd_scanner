@@ -1,0 +1,22 @@
+# ROS2 workspace artifacts
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.pyc
+
+# Bags and data
+*.db3
+*.mcap
+rosbag2_*/
+datasets/
+outputs/
+
+# Editor
+.vscode/
+.idea/
+
+# System
+.DS_Store

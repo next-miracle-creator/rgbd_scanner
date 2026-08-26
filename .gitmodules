@@ -1,0 +1,9 @@
+[submodule "third_party/livox_ros_driver2"]
+	path = third_party/livox_ros_driver2
+	url = https://github.com/Livox-SDK/livox_ros_driver2.git
+[submodule "third_party/ros2-vicon-bridge"]
+	path = third_party/ros2-vicon-bridge
+	url = https://github.com/dasc-lab/ros2-vicon-bridge.git
+[submodule "third_party/OrbbecSDK_ROS2"]
+	path = third_party/OrbbecSDK_ROS2
+	url = https://github.com/orbbec/OrbbecSDK_ROS2.git
