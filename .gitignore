@@ -20,3 +20,7 @@ outputs/
 
 # System
 .DS_Store
+
+# Local reports and recordings (never commit)
+reports/
+bags/

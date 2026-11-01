@@ -1,5 +1,9 @@
 # RGBD Scanner
 
+> **Status — read this first.** The working workflow is the manual one in [example.md](example.md): one terminal per sensor (Gemini 2, Mid-360, Vicon), a check terminal, then `ros2 bag record`. `scripts/`, `tools/` and `scanner_bringup/launch/` are placeholders, not implemented yet. The three drivers are vendored as plain source (not submodules) in one colcon workspace, `third_party/ros2_ws/src/`; Livox-SDK2 is in `third_party/Livox-SDK2/`.
+>
+> **Vicon IP:** [Update the Vicon IP here before every session](third_party/ros2_ws/src/ros2-vicon-bridge/launch/all_segments.launch.py#L6). Look up the Vicon host's current IP on the Vicon PC and put it into `vicon_computer_ip`.
+
 A lightweight ROS 2 Humble integration repository for RGB-D + LiDAR data collection and LiDAR-based pose estimation.
 
 This repository is designed for a scanner system built around:
