@@ -4,11 +4,12 @@ Record time-synced ROS 2 bags from Orbbec Gemini 2 + Livox Mid-360 + Vicon.
 
 ## The rig
 
-[![Handheld rig, 360° turntable](docs/rig_turntable.gif)](hardware/rig_approx.stl)
+<p align="center">
+  <a href="hardware/rig_approx.stl"><img src="docs/rig_turntable.webp" width="49%" alt="Handheld rig, 360° turntable"></a>
+  <img src="docs/rig_diagram.png" width="49%" alt="Rig components">
+</p>
 
 Click the animation to open the rotatable 3D model.
-
-![Rig components](docs/rig_diagram.png)
 
 Approximate assembly of the printed parts in `hardware/print_file/`; the exact CAD is `hardware/3D_model/POSEDRGBD.SLDASM`. Rig designed by Ziqi Ma.
 
