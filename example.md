@@ -41,7 +41,7 @@ cd ~/Desktop/Github-project/rgbd_scanner && source third_party/ros2_ws/install/s
 ros2 launch vicon_bridge all_segments.launch.py
 ```
 
-- Expected: `Connecting to Vicon Datastream SDK at <the IP you set>:801`, then `...connected!`. A line of dots every 5 s means the IP is wrong or unreachable.
+- Expected: `Connecting to Vicon Datastream SDK at 192.168.10.2:801` (with the IP you set), then `...connected!`. A line of dots every 5 s means the IP is wrong or unreachable.
 
 Check terminal: `ros2 topic hz /vicon/rgbd/rgbd/pose` shows a steady non-zero rate, and `ros2 topic echo --once /vicon/rgbd/rgbd/pose` prints one pose.
 
