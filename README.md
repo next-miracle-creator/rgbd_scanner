@@ -23,7 +23,10 @@ same `source` line: `colcon build` compiles every package under `src/` into
 
 ```bash
 cd third_party/ros2_ws/src
-git clone <driver-repo-url>
+# example: FAST-LIO
+git clone --recursive -b ROS2 https://github.com/hku-mars/FAST_LIO.git
+# vendor it, otherwise git commits it as a submodule link
+rm -rf FAST_LIO/.git
 cd ..
 colcon build --symlink-install \
   --cmake-args \
@@ -87,10 +90,14 @@ ros2 launch orbbec_camera gemini2.launch.py \
   color_ae_max_exposure:=20000
 ```
 
+hz on image_raw reads low for large frames, so check camera_info, which is
+published with every frame.
+
 ```bash
 source third_party/ros2_ws/install/setup.bash
-ros2 topic hz /camera/color/image_raw  # ~15 Hz
-ros2 topic hz /camera/depth/image_raw  # ~15 Hz
+ros2 topic hz /camera/color/camera_info  # ~15 Hz
+ros2 topic hz /camera/depth/camera_info  # ~15 Hz
+ros2 topic echo --once --no-arr /camera/color/image_raw  # prints one header
 ```
 
 ### Step 2 — Start the Mid-360 and check IMU at ~200 Hz and LiDAR at 10 Hz
@@ -118,8 +125,8 @@ ros2 launch vicon_bridge all_segments.launch.py
 
 ```bash
 source third_party/ros2_ws/install/setup.bash
-ros2 topic hz /vicon/rgbd/rgbd/pose           # ~80 Hz
-ros2 topic echo --once /vicon/rgbd/rgbd/pose  # prints one pose
+ros2 topic hz /vicon/rgbd/rgbd           # ~80 Hz
+ros2 topic echo --once /vicon/rgbd/rgbd  # prints one pose
 ```
 
 ### Step 4 — Record all 7 topics into a bag
@@ -133,7 +140,7 @@ ros2 bag record -s sqlite3 -o bags/rig_1031_2330 \
   /camera/depth/camera_info \
   /livox/lidar \
   /livox/imu \
-  /vicon/rgbd/rgbd/pose
+  /vicon/rgbd/rgbd
 ```
 
 ```bash
